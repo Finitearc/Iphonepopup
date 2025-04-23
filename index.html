@@ -1,38 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Typewriter Demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background: black;
-            color: lime;
-            font-family: monospace;
-            font-size: 24px;
-            padding: 20px;
-        }
-        #text {
-            white-space: pre-wrap; /* allows line breaks */
-        }
-    </style>
-</head>
-<body>
-    <div id="text"></div>
-
-    <script>
-        const message = "Hello...\nAre you alone right now?";
-        let i = 0;
-        const target = document.getElementById("text");
-
-        function typeWriter() {
-            if (i < message.length) {
-                target.textContent += message.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100); // delay between letters
+    <head>
+        <title>Testing Testing</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background: black;
+                color: red;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 18px;
+                padding: 20px;
             }
-        }
+            #text {
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="text"></div>
 
-        window.onload = typeWriter;
-    </script>
-</body>
+        <script>
+            const message =
+        Hello
+            
+        Are you alone right now?
+
+        I am watching you
+            ;
+
+            let index = 0;
+            const outputDiv = document.getElementById("output");
+
+            function typeWriter() {
+                if (index < message.length) {
+                    outputDiv.textContent += message.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 50);
+                }
+            }
+
+            window.onload = typeWriter;
+        </script>
+    </body>
 </html>
