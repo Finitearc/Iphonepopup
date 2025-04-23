@@ -1,51 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Typewriter Prank</title>
+    <title>Typewriter Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background-color: black;
+            background: black;
             color: lime;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.5em;
+            font-family: monospace;
+            font-size: 24px;
             padding: 20px;
-            margin: 0;
         }
-
-        #output {
-            white-space: pre-wrap;
+        #text {
+            white-space: pre-wrap; /* allows line breaks */
         }
     </style>
 </head>
 <body>
-    <div id="output"></div>
+    <div id="text"></div>
 
     <script>
-        const message = `
-🔐 Initializing System Check...
-
-⚠️ Critical iOS Error Detected
-
-Malicious activity originating from:
-IP: 192.168.0.66
-Location: UNKNOWN
-
-Attempting lockdown...
-Lockdown failed.
-
-You are being watched 👁️‍🗨️
-        `;
-
-        let index = 0;
-        const outputDiv = document.getElementById("output");
+        const message = "Hello...\nAre you alone right now?";
+        let i = 0;
+        const target = document.getElementById("text");
 
         function typeWriter() {
-            if (index < message.length) {
-                outputDiv.textContent += message.charAt(index);
-                index++;
-                setTimeout(typeWriter, 50); // Speed of typing (lower = faster)
+            if (i < message.length) {
+                target.textContent += message.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100); // delay between letters
             }
         }
 
