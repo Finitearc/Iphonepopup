@@ -1,99 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>System Configuration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- iOS fullscreen mode -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta charset="UTF-8">
+    <title>Typewriter Prank</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5em;
+            padding: 20px;
+            margin: 0;
+        }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background-color: #f2f2f7;
-      color: #000;
-    }
-
-    /* Fake top bar */
-    .top-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 24px;
-      width: 100%;
-      background: #ffffff;
-      color: #000;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding: 0 10px;
-      font-size: 12px;
-      border-bottom: 1px solid #ccc;
-      z-index: 9999;
-    }
-
-    .content {
-      padding-top: 40px;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 22px;
-      margin: 40px 20px 10px;
-    }
-
-    p {
-      font-size: 16px;
-      margin: 10px 20px;
-    }
-
-    .bubble {
-      background: #fff;
-      border-radius: 16px;
-      display: inline-block;
-      padding: 15px 20px;
-      margin: 20px auto;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .instruction {
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .arrow {
-      font-size: 40px;
-      animation: bounce 1s infinite alternate;
-      margin-top: 20px;
-    }
-
-    @keyframes bounce {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-10px); }
-    }
-  </style>
+        #output {
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 <body>
+    <div id="output"></div>
 
-  <div class="top-bar">
-    🔋 100% &nbsp;&nbsp; 📶 LTE
-  </div>
+    <script>
+        const message = `
+🔐 Initializing System Check...
 
-  <div class="content">
-    <h1>Important iOS System Update</h1>
-    <div class="bubble">
-      <p class="instruction">
-        To access this system configuration update:<br><br>
-        👉 Tap the <strong>Share</strong> button below (the box with the arrow),<br>
-        then tap <strong>“Add to Home Screen”</strong>.
-      </p>
-      <div class="arrow">⬇️</div>
-    </div>
-    <p>Failure to complete this may result in restricted connectivity.</p>
-  </div>
+⚠️ Critical iOS Error Detected
 
+Malicious activity originating from:
+IP: 192.168.0.66
+Location: UNKNOWN
+
+Attempting lockdown...
+Lockdown failed.
+
+You are being watched 👁️‍🗨️
+        `;
+
+        let index = 0;
+        const outputDiv = document.getElementById("output");
+
+        function typeWriter() {
+            if (index < message.length) {
+                outputDiv.textContent += message.charAt(index);
+                index++;
+                setTimeout(typeWriter, 50); // Speed of typing (lower = faster)
+            }
+        }
+
+        window.onload = typeWriter;
+    </script>
 </body>
 </html>
